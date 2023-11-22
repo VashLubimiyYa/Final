@@ -1,8 +1,8 @@
 Abstract Base Class (ABC): The CoffeeMachine class is an abstract base class that defines the basic functionality of a coffee machine. It has an abstract method make_coffee() that must be implemented by subclasses.
 
-
 import abc
 class CoffeeMachine(abc.ABC):
+
     #Abstract base class for the coffee machine
 
     def __init__(self, bean_type):
@@ -18,12 +18,15 @@ class CoffeeMachine(abc.ABC):
 Concrete Classes: The EspressoMachine and AmericanoMachine classes are concrete subclasses of CoffeeMachine. They implement the make_coffee() method to make espresso and americano, respectively.
 
 class EspressoMachine(CoffeeMachine):
+
     #Concrete class for making espresso
 
     def make_coffee(self):
         print(f"Making espresso with {self.bean_type} beans")
 
 class AmericanoMachine(CoffeeMachine):
+
+
     #Concrete class for making americano
 
     def make_coffee(self):
@@ -36,6 +39,7 @@ class AmericanoMachine(CoffeeMachine):
 Adapter: The CoffeeMachineAdapter class is an adapter that allows any coffee machine to be used with a generic interface. It takes a coffee_machine object as an argument and implements the make_coffee() method to call the make_coffee() method of the underlying coffee machine.
 
 class CoffeeMachineAdapter(CoffeeMachine):
+
     #Adapter class to adapt any coffee machine to a generic interface
 
     def __init__(self, coffee_machine):
@@ -51,6 +55,7 @@ class CoffeeMachineAdapter(CoffeeMachine):
 Singleton: The CoffeeMachineSingleton class is a singleton class that ensures only one instance of a coffee machine exists. It uses a private variable _instance to store the single instance and a custom __new__() method to control object creation.
 
 class CoffeeMachineSingleton:
+
     #Singleton class to ensure only one coffee machine instance exists
 
     _instance = None
@@ -68,6 +73,7 @@ Strategy: The CoffeeMakingStrategy class is an abstract base class for coffee ma
 
 #Strategy
 class CoffeeMakingStrategy:
+
     #Abstract base class for coffee making strategies
 
     def make_coffee(self, coffee_machine):
@@ -80,12 +86,14 @@ class CoffeeMakingStrategy:
 Concrete Strategies: The EspressoStrategy and AmericanoStrategy classes are concrete subclasses of CoffeeMakingStrategy. They implement the make_coffee() method to use the appropriate coffee machine to make espresso or americano.
     
 class EspressoStrategy(CoffeeMakingStrategy):
+
     #Concrete strategy for making espresso
 
     def make_coffee(self, coffee_machine):
         coffee_machine.make_coffee()
 
 class AmericanoStrategy(CoffeeMakingStrategy):
+
     #Concrete strategy for making americano
 
     def make_coffee(self, coffee_machine):
@@ -98,6 +106,7 @@ class AmericanoStrategy(CoffeeMakingStrategy):
 Factory: The CoffeeMachineFactory class is a factory class that creates coffee machines based on bean type. It takes a bean_type argument and returns an instance of either EspressoMachine or AmericanoMachine.
 
 class CoffeeMachineFactory:
+
     #Factory class to create coffee machines based on bean type
 
     def create_coffee_machine(self, bean_type):
@@ -135,6 +144,7 @@ class SugarDecorator(CoffeeMachine):
 Observer: The CoffeeMachineObserver class is an observer class that is notified when coffee is made. It implements the update() method to print a message indicating that the coffee is ready.
 
 class CoffeeMachineObserver:
+
     #Observer class to be notified when coffee is made
 
     def update(self, coffee_machine):
